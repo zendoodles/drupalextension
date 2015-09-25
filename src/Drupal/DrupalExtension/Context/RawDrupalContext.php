@@ -427,7 +427,7 @@ class RawDrupalContext extends RawMinkContext implements DrupalAwareInterface {
     $submit->click();
 
     if (!$this->loggedIn()) {
-      throw new \Exception(sprintf("Failed to log in as user '%s' with role '%s'", $this->user->name, $this->user->role));
+      throw new \Exception(sprintf("Failed to log in as user '%s' with roles '%s'", $this->user->name, implode(', ',$this->user->roles)));
     }
   }
 
